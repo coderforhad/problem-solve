@@ -60,17 +60,23 @@
 // console.log(outputMin);
 
 const user = [
-    {firstName: "akshay", lastName: "saini", age: 26}, 
-    {firstName: "donald", lastName: "trump", age: 75}, 
-    {firstName: "elon", lastName: "musk", age: 50}, 
-    {firstName: "deepika", lastName: "padukone", age: 30}, 
+    { firstName: "akshay", lastName: "saini", age: 26 },
+    { firstName: "donald", lastName: "trump", age: 75 },
+    { firstName: "elon", lastName: "musk", age: 50 },
+    { firstName: "deepika", lastName: "padukone", age: 30 },
 ]
 
-const output = user.reduce((acc, curr)=>{
-    if(curr.age <= 30 ){
-        acc.push(curr.firstName + " "+ curr.lastName)
+// const output = user.reduce((acc, curr)=>{
+//     if(curr.age <= 30 ){
+//         acc.push(curr.firstName + " "+ curr.lastName)
+//     }
+//     return acc;
+// }, [])
+
+const output = user.filter(person => {
+    if (person.age <= 30) {
+        return person.firstName
     }
-    return acc;
-}, [])
+})
 
 console.log('output', output)
