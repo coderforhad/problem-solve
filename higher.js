@@ -63,7 +63,7 @@ const user = [
     { firstName: "akshay", lastName: "saini", age: 26 },
     { firstName: "donald", lastName: "trump", age: 75 },
     { firstName: "elon", lastName: "musk", age: 50 },
-    { firstName: "deepika", lastName: "padukone", age: 30 },
+    { firstName: "deepika", lastName: "padukone", age: 26 },
 ]
 
 // const output = user.reduce((acc, curr)=>{
@@ -73,10 +73,13 @@ const user = [
 //     return acc;
 // }, [])
 
-const output = user.filter(person => {
-    if (person.age <= 30) {
-        return person.firstName
+const output = user.reduce((acc, curr) => {
+    if (acc[curr.age]) {
+        acc[curr.age] = ++acc[curr.age];
+    } else {
+        acc[curr.age] = 1;
     }
-})
+    return acc;
+}, {})
 
 console.log('output', output)
